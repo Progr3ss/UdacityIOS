@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RecordingSoundsViewController.swift
 //  PitchPerfect
 //
 //  Created by martin chibwe on 6/30/16.
@@ -24,6 +24,7 @@ class RecordingSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 		// Do any additional setup after loading the view, typically from a nib.
 	}
 	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
 		stopRecordingButton.enabled = false
 
 	}
@@ -43,9 +44,9 @@ class RecordingSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
 	@IBAction func RecordAudio(sender: AnyObject) {
 		
-		recordingLabel.text = "Recording in progress"
-		stopRecordingButton.enabled = true
-		recordingButton.enabled = false
+
+		
+		setUIStateForRecording(true)
 		
 		//create path to audio file
 		let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
@@ -65,11 +66,18 @@ class RecordingSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 		
 		
 	}
+	
+	
+	func setUIStateForRecording(isRecording: Bool) {
+		recordingLabel.text = isRecording ? "Recording in Progress" : "Tap to Record"
+		recordingButton.enabled = !isRecording
+		stopRecordingButton.enabled = isRecording
+	}
+	
 
 	@IBAction func stopRecording(sender: AnyObject) {
 		
-		recordingButton.enabled = true
-//		recordingLabel.text = "Tap to Record"
+		setUIStateForRecording(false)
 		audioRecorder.stop()
 		recordingLabel.text = "Tap to Record"
 		let audioSession = AVAudioSession.sharedInstance()

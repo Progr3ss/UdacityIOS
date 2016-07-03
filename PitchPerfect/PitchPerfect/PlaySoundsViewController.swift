@@ -1,5 +1,5 @@
 //
-//  PlaySound.swift
+//  PlaySoundsViewController.swift
 //  PitchPerfect
 //
 //  Created by martin chibwe on 7/1/16.
@@ -33,12 +33,29 @@ class PlaySoundsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		setupAudio()
+		setupScaleAspectFit()
+
 
     }
 	
 	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+		
 		configureUI(.NotPlaying)
 	}
+	
+	
+	func setupScaleAspectFit() {
+		
+		snailButton.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+		rabbitButton.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+		chipmunkButton.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+		vaderButton.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+		echoButton.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+		reverbButton.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+		stopButton.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+	}
+	
 	
 	
 	@IBAction func playSoundForButton(sender:AnyObject) {
