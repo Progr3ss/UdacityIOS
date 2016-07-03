@@ -28,18 +28,13 @@ class RecordingSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
 	}
 
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
-	}
-	
-	
+
 	
 	//MARK: AudioRecordingDelegates
 	func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
-		print("finished recording ")
+
 		if (flag){
-			self.performSegueWithIdentifier("stopRecording", sender: audioRecorder.url)
+			performSegueWithIdentifier("stopRecording", sender: audioRecorder.url)
 		}else{
 			print("Saving of recording failed")
 		}
@@ -48,7 +43,7 @@ class RecordingSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
 	@IBAction func RecordAudio(sender: AnyObject) {
 		
-		recordingLabel.text = "Recording ..."
+		recordingLabel.text = "Recording in progress"
 		stopRecordingButton.enabled = true
 		recordingButton.enabled = false
 		
@@ -66,7 +61,7 @@ class RecordingSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 		audioRecorder.meteringEnabled = true
 		audioRecorder.prepareToRecord()
 		audioRecorder.record()
-		print("audioRecording")
+
 		
 		
 	}
@@ -74,8 +69,9 @@ class RecordingSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 	@IBAction func stopRecording(sender: AnyObject) {
 		
 		recordingButton.enabled = true
-		recordingLabel.text = "Stop Recording"
+//		recordingLabel.text = "Tap to Record"
 		audioRecorder.stop()
+		recordingLabel.text = "Tap to Record"
 		let audioSession = AVAudioSession.sharedInstance()
 		try! audioSession.setActive(false)
 		
@@ -86,10 +82,8 @@ class RecordingSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 	//MARK:PrepareForSegue
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		if segue.identifier == "stopRecording" {
-			print("prepare for segue ")
 			let playSoundVC = segue.destinationViewController as! PlaySoundsViewController
 		    let recordedAudioURL = sender as! NSURL
-			print("Recorded URl \(recordedAudioURL)")
 			
 			playSoundVC.recordedAudioURL = recordedAudioURL
 		

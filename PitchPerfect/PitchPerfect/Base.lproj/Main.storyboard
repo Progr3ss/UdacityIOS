@@ -28,29 +28,37 @@
                                     <action selector="RecordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cl4-ff-tQp"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWM-an-uIm">
+                                <rect key="frame" x="247" y="364" width="107" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rC6-ha-f5A">
-                                <rect key="frame" x="275" y="474" width="50" height="50"/>
+                                <rect key="frame" x="275" y="393" width="50" height="50"/>
                                 <state key="normal" image="StopRecording"/>
                                 <connections>
                                     <action selector="stopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZaA-Fe-OOf"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWM-an-uIm">
-                                <rect key="frame" x="247" y="427" width="107" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="lWM-an-uIm" firstAttribute="centerX" secondItem="P9n-5w-Cct" secondAttribute="centerX" id="chT-Mi-kf2"/>
-                            <constraint firstItem="rC6-ha-f5A" firstAttribute="top" secondItem="lWM-an-uIm" secondAttribute="bottom" constant="26" id="eJH-BM-BQd"/>
-                            <constraint firstItem="P9n-5w-Cct" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="grg-wV-sX4"/>
-                            <constraint firstItem="rC6-ha-f5A" firstAttribute="centerX" secondItem="lWM-an-uIm" secondAttribute="centerX" id="p78-N7-M8x"/>
-                            <constraint firstItem="P9n-5w-Cct" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="rkf-xO-hvE"/>
-                            <constraint firstItem="lWM-an-uIm" firstAttribute="top" secondItem="P9n-5w-Cct" secondAttribute="bottom" constant="77" id="x2P-45-6JC"/>
+                            <constraint firstItem="P9n-5w-Cct" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="8lS-js-krZ"/>
+                            <constraint firstItem="P9n-5w-Cct" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AJO-kW-R1k"/>
+                            <constraint firstItem="lWM-an-uIm" firstAttribute="top" secondItem="P9n-5w-Cct" secondAttribute="bottom" constant="28" id="OBl-TC-NES"/>
+                            <constraint firstItem="lWM-an-uIm" firstAttribute="centerX" secondItem="P9n-5w-Cct" secondAttribute="centerX" id="YmR-6d-gFZ"/>
+                            <constraint firstItem="lWM-an-uIm" firstAttribute="centerY" secondItem="P9n-5w-Cct" secondAttribute="centerY" id="jXn-3G-7Sf"/>
+                            <constraint firstItem="rC6-ha-f5A" firstAttribute="top" secondItem="lWM-an-uIm" secondAttribute="bottom" constant="8" id="pQZ-87-USa"/>
+                            <constraint firstItem="lWM-an-uIm" firstAttribute="centerX" secondItem="rC6-ha-f5A" secondAttribute="centerX" id="uUD-m8-x0a"/>
+                            <constraint firstItem="lWM-an-uIm" firstAttribute="top" secondItem="P9n-5w-Cct" secondAttribute="bottom" constant="14" id="wJz-XX-BeL"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="OBl-TC-NES"/>
+                                <exclude reference="jXn-3G-7Sf"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="mW2-aU-Gnb"/>
                     <connections>
