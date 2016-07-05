@@ -16,6 +16,11 @@ class EditMemeViewController: UIViewController {
 	@IBOutlet weak var topTextField: UITextField!
 	@IBOutlet weak var imagePickerView: UIImageView!
 	
+//	@IBOutlet weak var navigationBar: UINavigationItem!
+	@IBOutlet weak var navigationBar: UINavigationItem!
+	@IBOutlet weak var toolBar: UIToolbar!
+//	@IBOutlet weak var navigationBar: UINavigationItem!
+	
 	var image: UIImage?
 	var memedImage = UIImage()
 	var meme:Meme!
@@ -37,7 +42,7 @@ class EditMemeViewController: UIViewController {
 	}
 	override func viewWillDisappear(animated: Bool) {
 		super.viewWillDisappear(animated)
-//		unsubscribeFromKeyboardNotifications()
+		unsubscribeFromKeyboardNotifications()
 	}
 	
 	
@@ -170,6 +175,8 @@ extension EditMemeViewController{
 	func unsubscribeFromKeyboardNotifications() {
 		NSNotificationCenter.defaultCenter().removeObserver(self, name:
 			UIKeyboardWillShowNotification, object: nil)
+		
+		
 		NSNotificationCenter.defaultCenter().removeObserver(self, name:
 			UIKeyboardWillHideNotification, object: nil)
 	}
@@ -192,19 +199,19 @@ extension EditMemeViewController{
 	
 	func keyboardWillHide(notification: NSNotification) {
 		// Only bottom
-		if topTextField.editing {
+		
+		if bottomTextField.editing {
+		 view.frame.origin.y = 0
 			
-			view.frame.origin.y += getKeyboardHeight(notification)
 
 			
 		}
-		view.frame.origin.y = 0
+	
 	}
 
 
 	func generateMemedImage() -> UIImage {
-//		toolBar.hidden = true
-//		navigationBar.hidden = true
+
 		UIApplication.sharedApplication().statusBarHidden = true
 		
 		UIGraphicsBeginImageContext(self.view.frame.size)
@@ -212,8 +219,7 @@ extension EditMemeViewController{
 		let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
 		UIGraphicsEndImageContext()
 		
-//		toolBar.hidden = false
-//		navigationBar.hidden = false
+
 		UIApplication.sharedApplication().statusBarHidden = false
 		
 		return memedImage
