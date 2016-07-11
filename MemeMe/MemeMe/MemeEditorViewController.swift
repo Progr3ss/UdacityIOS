@@ -61,11 +61,14 @@ class MemeEditorViewController: UIViewController, UINavigationControllerDelegate
         
 		
         scrollView.contentSize = imageView.bounds.size
-        
+		scrollView.contentMode = UIViewContentMode.ScaleAspectFit
         scrollView.addSubview(imageView)
         
 	
         view.insertSubview(scrollView, belowSubview: toolbar)
+		
+		
+		
         
         scrollView.delegate = self
         

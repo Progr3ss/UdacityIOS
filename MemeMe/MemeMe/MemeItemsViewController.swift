@@ -73,13 +73,7 @@ class MemeItemsViewController: UIViewController {
         navigationItem.leftBarButtonItem?.enabled = memes?.count > 0
     }
     
-    override func viewDidAppear(animated: Bool) {
-  
-        if shouldSegueToEditor {
-            shouldSegueToEditor = false
-            performSegueWithIdentifier("MemeEditorSegue", sender: self)
-        }
-    }
+
     
     override func viewWillLayoutSubviews() {
         calculateCollectionCellSize()

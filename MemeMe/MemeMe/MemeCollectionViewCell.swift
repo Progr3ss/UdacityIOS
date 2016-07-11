@@ -19,10 +19,7 @@ class MemeCollectionViewCell: UICollectionViewCell {
     var meme: Meme? {
         didSet {
             if let meme = meme {
-//				print("\(imageView?.image)")
-
 				imageView?.image = meme.image
-				print("\(topLabel?.text) and \(bottomLabel?.text)")
                 topLabel?.text = meme.topText
                 bottomLabel?.text = meme.bottomText
             }
